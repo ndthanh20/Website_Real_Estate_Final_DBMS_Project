@@ -40,6 +40,7 @@
                     <ul class="capitalized">
                         <li>Địa chỉ: 144 Xuân Thủy, Cầu Giấy, hà Nội</li>
                         <li>Số điện thoại : +123456789</li>
+                        <li>Kênh thông tin số 1 về bất động sản</li>
                     </ul>
 
                 </div>
@@ -65,7 +66,8 @@
                     <h1>Tổng đài hỗ trợ</h1>
                     <ul class="capitalized">
                         <li>Tổng đài CSKH: 19000019</li>
-                        <li>Email : info@gmail.com</li>
+                        <li>Hỗ trợ : hotro@gmail.com</li>
+                        <li>CSKh : cskh@gmail.com</li>
                     </ul>
 
                 </div>
