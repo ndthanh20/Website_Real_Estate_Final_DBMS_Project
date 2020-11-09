@@ -1,9 +1,9 @@
 <template>
-    <div id="agency">
+    <div id="project">
         <div id="header">
             <form>
                 <div class="column">
-                    <input type="text" name="search" id="search" placeholder="Tên môi giới, số điện thoại, ..." v-model="search">
+                <input type="text" name="search" id="search" placeholder="Nhập tên dự án, chủ đầu tư ..." v-model="search">
                 <button>Tìm kiếm</button>
             </div>
             </form>
@@ -80,7 +80,7 @@ export default {
     }
 }
 
-#agency {
+#project {
     #header {
         display: flex;
         flex-direction: column;
@@ -137,7 +137,6 @@ export default {
             }
         }
     }
-
     #paginator {
         display: flex;
         flex-direction: row;

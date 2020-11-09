@@ -106,8 +106,8 @@ export default {
                 type: this.$refs.type.value,
                 bedroom: this.$refs.bedroom.value,
                 ref: this.$refs.ref.value || '',
-                price_from: this.$refs.min.value || 100000,
-                price_to: this.$refs.max.value || 100000000,
+                price_from: this.$refs.min.value || 1000000,
+                price_to: this.$refs.max.value || 10000000000,
             }});
     },
   }

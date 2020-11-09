@@ -1,13 +1,10 @@
 <template>
     <div id="home">
-        <div id="fullscreen-video">
+        <div id="fullscreen">
             <div class="header">
                 <h1>Homes</h1>
                 <h2>Search homes</h2>
             </div>
-            <video onloadeddata="this.play();" loop playsinline muted>
-                <source src="/video/video.mp4" type="video/mp4">
-            </video>
         </div>
         <div id="company-info">
             <div id="company-info-image">
@@ -50,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#fullscreen-video {
+#fullscreen {
     position: relative;
     float: left;
     width: 100vw;
@@ -60,15 +57,7 @@ export default {
     background-position: 0 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    video {
-        position: relative;
-        top: 0;
-        left: 0;
-        z-index: 50;
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-    }
+    
     .header {
         position: absolute;
         float: left;
@@ -93,6 +82,7 @@ export default {
         h2 {
             font-size: 16px;
         }
+
     }
 }
 

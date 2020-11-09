@@ -10,10 +10,10 @@
             <nav>
                 <ul>
                     <li>
-                        <router-link to="/search">Tìm mua</router-link>
+                        <router-link to="/buy">Tìm mua</router-link>
                     </li>
                     <li>
-                        <router-link to="/search">Tìm thuê</router-link>
+                        <router-link to="/rent">Tìm thuê</router-link>
                     </li>
                     <li>
                         <router-link to="/contact">Đăng tin</router-link>
@@ -22,7 +22,7 @@
                         <router-link to="/agency">Môi giới</router-link>
                     </li>
                     <li>
-                        <router-link to="/search">Dự án</router-link>
+                        <router-link to="/project">Dự án</router-link>
                     </li>
                     <li>
                         <router-link to="/login">Đăng nhập</router-link>
