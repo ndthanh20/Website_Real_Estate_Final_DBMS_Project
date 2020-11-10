@@ -1,0 +1,913 @@
+/*
+HTML 5 Template Name: Basic 90
+File: Layout CSS
+Author: OS Templates
+Author URI: https://www.os-templates.com/
+Licence: <a href="https://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+/*------------------ADMIN page -------------------------------*/
+.admin .logout_btn{
+  float: right;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.change_unit,.delete_unit{
+  text-align: center;
+}
+
+.change_button,.delete_button{
+  cursor: pointer;
+}
+.add_button{
+  font-size: 20px;
+  height: 30px;
+  margin: 20px;
+  float: right;
+  cursor: pointer;
+}
+td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+select {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none; */
+  outline: 0;
+  box-shadow: none;
+  border: 10 !important;
+  background: white;
+  background-image: none;
+  font-size: 20px;
+}
+/* Remove IE arrow */
+/* Custom Select */
+.select {
+  margin: 20px;
+  position: relative;
+  border: 2px rgb(31, 149, 185);
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: rgb(31, 149, 185);
+  overflow: hidden;
+  border-radius: .25em;
+  border: 2px rgb(31, 149, 185);
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: black;
+  cursor: pointer;
+}
+optgroup { font-size:15px; }
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: rgb(31, 149, 185);
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+  border: 2px rgb(31, 149, 185);
+}
+/* Transition */
+.select:hover::after {
+  color: white;
+}
+/* ------------------------------------CSS for aboutus page -------------------------------------- */
+#aboutUs{
+  font-size: 20px;
+  width: 900px;
+  margin-bottom: 90px;
+  background-color: ;
+}
+#logoAboutUs{
+  width: 900px;
+}
+#imgAboutUs{
+  width: 500px;
+  height: 250px;
+  margin: 0px 0px 0px 150px;
+}
+#title p{
+  color: rgb(39, 50, 153);
+  font-size: 40px;
+  font-weight: bold;
+}
+#introduce{
+  float: left;
+}
+#introduce p{
+  font-weight: bold;
+  font-size: 23px;
+}
+#logoUET{
+  margin-right: 0px;
+  width: 250px;
+  float:right;
+}
+#UET{
+  width: 250px;
+}
+#listMember {
+  clear: both;
+  color: #289da1;
+}
+#specific{
+}
+#specific p{
+  clear: both;
+  font-weight: bold;
+  font-size: 23px;
+}
+.LeftAbout{
+  clear: both;
+  width: 600px;
+  float: left;
+}
+.RightAbout{
+  margin-top: 60px;
+  width: 250px;
+  float: right;
+  margin-right: 30px;
+}
+.name{
+  color:#289da1;
+  font-weight: bold;
+  font-size: 21px;
+}
+.imgAb{
+  width:200px;
+  border: 1px black solid;
+  border-radius: 8px;
+}
+#cutt{
+  clear: both;
+  width: 700px;
+  background-color: black;
+  height: 3px;
+  margin-left: 70px;
+}
+
+/* ----------------------------------CSS for blog page----------------------------------------- */
+.blog_page h2{
+  font-weight: 900;
+  font-size: 40px;
+  font-style: unset;
+}
+.blog_page a{
+  font-size: 30px;
+  font-weight: 900;
+}
+
+#logoBlog{
+  width: 150px;
+  float: left;
+}
+#title{
+  color: #289da1;
+  font-size: 30px;
+  float: right;
+  width: 700px;
+}
+#intro{
+  clear: both;
+  font-style: italic;
+  color: black;
+  text-align:center;
+}
+#intro ul{
+	list-style-type: none;
+	width: 1080px;
+	margin-left: -100px;
+	text-align: center;
+}
+#intro li {
+	color: black;
+	display: inline-block;
+	width: 260px;
+	height: 240px;
+	line-height: 40px;
+	margin-left: -5px;
+  }
+.postBlog{
+  clear: both;
+  font-size: 20px;
+}
+#imgBlog1{
+  width: 500px;
+}
+.avt{
+  width: 60px;
+}
+.avatar{
+  float:left;
+  padding: 10px;
+}
+.Name{
+  color:;
+  padding:0px 0px 0px 0px;
+}
+.company{
+	padding: 20px 0;
+  font-size:15px;
+  color:#6E6E6E;
+}
+#leftPost{
+  float: left;
+  width: 600px;
+}
+#rightPost{
+  float: right;
+  width: 200px;
+}
+#img3{
+  width: 700px;
+}
+.cut{
+    clear: both;
+  width:700px;
+  height: 3px;
+  background-color: #A4A4A4;
+  margin-left: 100px;
+}
+/* ----------------------------------------------------------------------------------------- */
+.candidate{
+  border: rgb(36, 152, 160) 2px solid;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+.skill:hover{
+  cursor: pointer;
+}
+.skills{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 20px;
+  width: 50px;
+  height: auto;
+}
+.add_btn{
+  text-align: center;
+  margin: 10px;
+  padding: 8px;
+  height: 100%;
+  width: 60px;
+  display: inline-block;
+  background-color: rgb(31, 149, 185);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-findcandidate, .btn-findjob{
+  font-size: 20px;
+}
+#say_hello{
+  margin: 0;
+  float: right;
+  font-size: 20px;
+}
+.logout_btn {
+  margin: 20px;
+  padding: 20px;
+  display: block;
+  font-size: 30px;
+  color: rgb(31, 149, 185);
+  border: rgb(31, 149, 185) 2px solid;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+}
+.logout_btn:hover{
+  background-color: rgb(31, 149, 185);
+  color: white;
+}
+.see_more{
+  background-color: rgb(31, 149, 185);
+  color: white;
+  font-size: 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
+  margin: 20px;
+  text-align: center;
+}
+.see_more:hover{
+  cursor: pointer;
+}
+
+#container form, .register_employer{
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+#container .input_field{
+  width: 300px;
+  height: 30px;
+  font-size:20px;
+  margin-bottom: 10px
+}
+#container #skills{
+  width: 100%;
+}
+
+.btn-update{
+  background-color: rgb(31, 149, 185);
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  margin: 30px;
+}
+
+.login__form, .signup__form{
+  font-size: 30px;
+}
+.company_details p {
+  font-size: 20px;
+}
+.job_details{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+  font-size: 20px;
+}
+.job_details h2{
+  font-size: 30px;
+}
+.job_details h1{
+  font-size: 40px;
+  font: bold;
+}
+a:link{
+  text-decoration: none;
+}
+.company_list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.company_list li{
+  display: inline-block;
+  font-size: 20px;
+}
+.job{
+  width: 100% ;
+  height: auto;
+  border: 5px rgb(31, 149, 185) solid;
+  border-radius: 20px;
+  float: left;
+  padding: 20px;
+  margin: 20px;
+}
+.logo{
+  margin: 20px;
+  height: 150px;
+  float: left;
+}
+
+html {
+  overflow-y: scroll;
+} /* Forces a scrollbar when the viewport is larger than the websites content - CSS3 */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  background-color: rgb(31, 149, 185);
+}
+.page_results{
+	padding-top: 10px;
+  height: 400px;
+  height: auto;
+}
+.clear:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+}
+.clear {
+  display: block;
+  clear: both;
+}
+html[xmlns] .clear {
+  display: block;
+}
+* html .clear {
+  height: 1%;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+code {
+  font-weight: normal;
+  font-style: normal;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.fl_left {
+  float: left;
+}
+.fl_right {
+  float: right;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: normal;
+  vertical-align: middle;
+}
+.imgholder,
+.imgl,
+.imgr {
+  padding: 4px;
+  border: 1px solid #d6d6d6;
+  text-align: center;
+}
+.imgl {
+  float: left;
+  margin: 0 15px 15px 0;
+  clear: left;
+}
+.imgr {
+  float: right;
+  margin: 0 0 15px 15px;
+  clear: right;
+}
+
+/*----------------------------------------------HTML 5 Overrides-------------------------------------*/
+
+address,
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+q {
+  display: block;
+  padding: 0 10px 8px 10px;
+  color: black;
+  background-color: #ececec;
+  font-style: italic;
+  line-height: normal;
+}
+q:before {
+  content: "� ";
+  font-size: 26px;
+}
+q:after {
+  content: " �";
+  font-size: 26px;
+  line-height: 0;
+}
+
+/* ----------------------------------------------Wrapper-------------------------------------*/
+
+div.wrapper {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.row1,
+.row1 a {
+  color: rgb(10, 67, 71);
+  background-color: rgb(40, 157, 161);
+}
+.row2 {
+  color: black;
+  background-color: #ffffff;
+}
+
+.row3,
+.row3 a {
+  color: #919191;
+  background-color: #232323;
+}
+
+/*----------------------------------------------Generalise-------------------------------------*/
+
+#header,
+#container,
+#footer {
+  display: block;
+  width: 960px;
+  margin: 0 auto;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: italic;
+  line-height: normal;
+}
+
+address {
+  font-style: normal;
+}
+
+blockquote,
+q {
+  display: block;
+  padding: 8px 10px;
+  color: black;
+  background-color: #ececec;
+  font-style: italic;
+  line-height: normal;
+}
+blockquote:before,
+q:before {
+  content: "� ";
+  font-size: 26px;
+}
+blockquote:after,
+q:after {
+  content: " �";
+  font-size: 26px;
+  line-height: 0;
+}
+
+form,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+legend {
+  display: none;
+}
+input,
+textarea{
+  font-size: 12px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.one_quarter,
+.two_quarter,
+.three_quarter,
+.four_quarter {
+  display: block;
+  float: left;
+  margin: 0 20px 0 0;
+}
+.footer{
+	display: block;
+}
+.footer ul {
+	background: #289da1;
+	list-style-type: none;
+	text-align: center;
+  }
+.footer li {
+	color: #f1f1f1;
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+	line-height: 40px;
+	margin-left: -5px;
+	font-size: 20px;
+}
+.one_quarter {
+  width: 225px;
+}
+.two_quarter {
+  width: 470px;
+}
+.three_quarter {
+  width: 715px;
+}
+.four_quarter {
+  width: 960px;
+  float: none;
+  margin-right: 0;
+  clear: both;
+}
+
+.one_third,
+.two_third,
+.three_third {
+  display: block;
+  float: left;
+  margin: 0 30px 0 0;
+}
+.one_third {
+  width: 300px;
+}
+.two_third {
+  width: 630px;
+}
+.three_third {
+  width: 960px;
+  float: none;
+  margin-right: 0;
+  clear: both;
+}
+
+.lastbox {
+  margin-right: 0;
+}
+
+/*----------------------------------------------Header-------------------------------------*/
+
+#header {
+  padding: 20px 0;
+}
+
+#header #hgroup {
+  float: left;
+  margin: 0 0 20px 0;
+}
+#header #hgroup h1,
+#header #hgroup h2 {
+  font-weight: normal;
+  font-style: normal;
+  text-transform: none;
+}
+#header #hgroup h1 {
+  font-size: 36px;
+}
+#header #hgroup h2 {
+  font-size: 13px;
+}
+
+#header .search_form {
+  display: block;
+  width: 400px;
+  float: right;
+  margin: 20px 0;
+  padding: 0;
+  font-size: 20px;
+}
+#header .search_btn{
+  width: 80px;
+  height: 32px;
+  background-color: #00deb6;
+  color: white;
+  border: none;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+#header .search_btn:hover{
+  cursor: pointer;
+}
+#header .search_form input {
+  border-radius: 10px;
+  display: block;
+  float: left;
+  width: 300px;
+  height: 28px;
+  font-size: 20px;
+  color: black;
+  background-color: white;
+  border: 1px solid #666666;
+}
+#header form #sf_submit {
+  display: block;
+  float: right;
+  width: 70px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff9900;
+  border: none;
+  cursor: pointer;
+}
+
+#header nav {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+  clear: both;
+}
+#header nav ul {
+  padding: 0 20px;
+}
+#header nav li {
+  display: inline;
+  margin-right: 25px;
+  text-transform: uppercase;
+}
+#header nav li.last {
+  margin-right: 0;
+}
+#header nav li a {
+  font-size: 20px;
+}
+#header nav li a:hover {
+  color: #ff9900;
+}
+
+/*----------------------------------------------Content Area-------------------------------------*/
+
+#container {
+  padding: 0 0;
+}
+#container section {
+  display: block;
+  margin-bottom: 30px;
+  padding: 0;
+}
+#container .last {
+  margin: 0;
+}
+#container .more {
+  text-align: right;
+}
+
+/* ------Slider-----*/
+
+#container #slider {
+  width: 100%;
+}
+#container #slider figure {
+}
+#container #slider figure img {
+  float: right;
+  width: 400px;
+  height: 300px;
+}
+#container #slider figure figcaption {
+  display: block;
+  float: left;
+  width: 520px;
+  height: 260px;
+  padding: 20px;
+  overflow: hidden;
+  color: #989898;
+  line-height: 1.6em;
+}
+#container #slider figure figcaption a {
+  color: #ff9900;
+
+}
+#container #slider figure h2 {
+  font-size: 42px;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: none;
+}
+#container #slider figure footer {
+  font-size: 20px;
+}
+
+/* ------Main Content-----*/
+
+#container #intro {
+  width: 100%;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d6d6d6;
+}
+#container #intro section {
+  width: 100%;
+}
+#container #intro section article {
+}
+#container #intro section article h2 {
+  margin-bottom: 15px;
+}
+#container #intro section article p {
+}
+#container #intro section article figure ul {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#container #intro section article figure ul li {
+  display: inline-block;
+  float: left;
+  margin: 0 25px 0 0;
+}
+#container #intro section article figure ul li.last {
+  margin: 0;
+}
+#container #intro section article figure ul li img {
+  width: 130px;
+  height: 130px;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #d6d6d6;
+}
+#container #intro section article figure figcaption {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  clear: both;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#container #homepage {
+  display: block;
+  width: 100%;
+  line-height: 1.6em;
+}
+#container #homepage section {
+  margin-bottom: 0;
+}
+#container #homepage section h2.title {
+  margin: 0 0 25px 0;
+  padding: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#container #homepage section footer {
+  font-size: 20px;
+  clear: both;
+}
+
+/* ------Blogposts-----*/
+
+#container #homepage section article header h2 {
+  font-size: 13px;
+  font-weight: bold;
+}
+#container #homepage section article address,
+#container #homepage section article time {
+  font-size: 10px;
+  font-style: normal;
+}
+#container #homepage section article footer {
+  font-size: 20px;
+  text-align: left;
+}
+
+/* ------Quick Links-----*/
+
+#container #homepage section nav li {
+  margin: 0 0 8px 0;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #d6d6d6;
+}
+#container #homepage section nav li.last {
+  margin: 0;
+}
+#container #homepage section nav a {
+  padding: 0 0 0 10px;
+  background: url("../images/arrow.gif") left center no-repeat;
+}
+
+/*----------------------------------------------Footer-------------------------------------*/
+
+#footer {
+  padding: 20px 0;
+}
+#footer p {
+  margin: 0;
+  padding: 0;
+}

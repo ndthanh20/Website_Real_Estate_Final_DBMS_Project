@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>IT Jobs</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles/layout.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <script>
+    window.onload = () => {
+      console.log('DOM has loaded')
+      //create route constructor
+
+      var Router = function(name, routes){
+        return{
+          name: name,
+          routes: routes
+        }    
+      }
+      var myFirstRouter = new Router('myFirstRouter', [
+        {
+          path: '/',
+          name: 'Root'
+        },
+        {
+          path: '/jobs',
+          name: 'Jobs'
+        },
+        {
+          path: '/aboutus',
+          name: 'About'
+        }
+      ])
+      var currentPath = window.location.pathname;
+      if(currentPath === '/'){
+        console.log('On the root page')
+      }else{
+        console.log('On the other page')
+      }
+    }
+  </script>
+  <script src="js/adminManage.js"></script>
+</head>
+<body>
+  <div class="wrapper row1">
+    <header id="header" class="clear">
+      <div id="hgroup">
+        <h1><a class="big__logo" href="/" style="color: rgb(43, 236, 243); font-family: 'Caveat', cursive;">PROPERTY PERFECT</a></h1>
+        <h2></h2>
+      </div>
+      <div class="search_form">
+          <input type="text" class="search_field" placeholder="Search property">
+          <a id="search" href="#cong">
+            <button class="search_btn"> Search </button>
+          </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a class="jobs" href="http://localhost:8080/jobs">Nhà đất</a></li>
+          <li><a class="companies" href="http://localhost:8080/companies">Dự án</a></li>
+          <li><a class="blog" href="http://localhost:8080/blogs">Blog</a></li>
+          <li class="switchState"><a class="signin" href="http://localhost:8080/signin">Sign in</a></li>
+          <li class="last aboutus"> <a href="http://localhost:8080/aboutus">About us</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <!-- content -->
+  <div class="wrapper row2">
+    <div id="container" class="clear">
+      <!-- Slider -->
+      <div class="page_results">
+        <section id="slider" class="clear">
+          <figure>
+            <img src="https://mogi.vn/content/images/home/home-bg-d.jpg" alt="" style="width:960px">
+          </figure>
+        </section>
+        <!-- main content -->
+        <div id="intro">
+          <section class="clear">
+            <!-- article 1 -->
+            <article class="two_quarter">
+              <h2>Why you love working here: </h2>
+                <ul>
+                  <li>Thưởng theo hiệu suất công việc + Thưởng năng lực vượt trội + Các gói thưởng Dự Án.</li>
+                  <li>Xét duyệt lương hàng năm.</li>
+                  <li>Lộ trình thăng tiến & định hướng nghề nghiêp rõ ràng</li>
+                  <li>Các ngày nghỉ phép trong năm và chế độ BHXH đúng theo qui định</li>
+                  <li>Môi trường làm việc start up và qui mô toàn cầu</li>
+                </ul>
+            </article>
+            <!-- article 2 -->
+            <article class="two_quarter lastbox">
+              <figure>
+                <ul class="clear">
+                  <li><a href="#"><img src="https://cdn.itviec.com/employers/zalo/logo/w170/3LCycUB7awD7KLYUor3dgJWq/zalocareers_blue_2.png" width="130" height="130" alt=""></a></li>
+                  <li><a href="#"><img src="https://cdn.itviec.com/employers/favie-tech/logo/w170/p54L4zhX8ye12otWyPRjx2fA/0.png" width="130" height="130" alt=""></a></li>
+                  <li class="last"><a href="#"><img src="https://cdn.itviec.com/employers/sgh-asia-ltd/logo/w170/u6NKVMpfLpcaxFuogS3GkiDs/SGH-Asia-_-profile-picture-Dec-19%20IT%20VIEC.jpg" width="130" height="130" alt=""></a></li>
+                </ul>
+                <figcaption><a href="#">View More Jobs For You Here &raquo;</a></figcaption>
+              </figure>
+            </article>
+          </section>
+        </div>
+      </div>
+      
+
+      <div id="homepage" class="last clear">
+        <section class="one_quarter">
+          <h2 class="title">From The Blog</h2>
+          <article>
+            <header>
+              <time datetime="2000-04-06">Friday, 6<sup>th</sup> April 2000</time>
+            </header>
+            <p>Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet.</p>
+            <footer class="more"><a href="http://localhost:8080/#blogs">Read More &raquo;</a></footer>
+          </article>
+        </section>
+        <section class="one_quarter">
+          <h2 class="title">Quick Links</h2>
+          <nav>
+            <ul>
+              <li><a href="http://localhost:8080/jobs">Jobs</a></li>
+              <li><a href="http://localhost:8080/companies">Company</a></li>
+              <li><a href="http://localhost:8080/blogs">Blog</a></li>
+              <li><a href="http://localhost:8080/aboutus">About us</a></li>
+            </ul>
+          </nav>
+        </section>
+        <section class="two_quarter lastbox">
+          <h2 class="title">About US</h2>
+          <img class="imgl" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/teamwork-people-with-puzzle-pieces_24877-54950.jpg" width="130" height="130" alt="">
+          <p>Giới thiệu chung về nhóm 11:</p>
+            <ul>
+                <li>Nhóm gồm 7 thành viên</li>
+                <li>Tất cả đều đang học tập tại trường ĐH Công Nghệ - ĐH Quốc Gia Hà Nội.</li>
+            </ul>
+          <footer class="more"><a href="#">Read More &raquo;</a></footer>
+        </section>
+      </div>
+      <!-- / content body -->
+	</div>
+	<footer class="footer">
+		<ul>
+			<li>Giới thiệu</li>
+			<li>Liên hệ</li>
+			<li>Hỗ trợ</li>
+		</ul>
+	</footer>
+  </div>
+</body>
+</html>
