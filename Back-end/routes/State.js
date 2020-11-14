@@ -2,30 +2,26 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const State = require('../model/State');
+const User = require('../model/User');
 
 router.get('/',(req,res) =>{
-    mongoose.connect('mongodb://localhost:27017/first-project-db',{ useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {
-        await db.collection('State').find({}).toArray((err, result) =>{
-			
-            res.json(result);
-            db.close();
+    State.find({}).then(response =>{
+            res.json(response);
           });
     });
-});
 
 router.delete('/',(req,res) =>{
-    mongoose.connect('mongodb://localhost:27017/first-project-db',{ useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {
-        db.collection('State').deleteMany();
+    State.deleteMany().then(response=>{
+        res.send('ok')
     });
-});
+    });
 
 router.post('/:userName',(req,res) =>{
-    mongoose.connect('mongodb://localhost:27017/first-project-db',{ useNewUrlParser: true, useUnifiedTopology: true }, async (err, db) => {
-        const user = {userName: req.params.userName};
-        db.collection('State').insertOne({userName: req.params.userName});
-        res.json(user);
-    });
-})
+    const user = new State({userName: req.params.userName});
+    user.save().then(response=>{
+        res.send('ok')
+    })
+});
 
 
 module.exports = router;

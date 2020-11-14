@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoute = require('./routes/userAuth');
+const houseRoute = require('./routes/House')
+const apartmentRoute = require('./routes/Apartment')
 const companiesRoute = require('./routes/Companies');
 const jobsRoute = require('./routes/Jobs');
 const stateRoute = require('./routes/State');
@@ -20,6 +22,8 @@ app.use('/state',stateRoute);
 app.use('/auth',authRoute);
 app.use('/companies',companiesRoute);
 app.use('/jobs',jobsRoute);
+app.use('/house',houseRoute);
+app.use('/apartment',apartmentRoute);
 
 //connect to the db
 mongoose.connect('mongodb://localhost:27017/first-project-db',{ useNewUrlParser: true, useUnifiedTopology: true },() =>{

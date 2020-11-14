@@ -375,10 +375,44 @@ a:link{
   padding: 20px;
   margin: 20px;
 }
+.house{
+  width: 100% ;
+  height: auto;
+  border: 2px #ebedf0 solid;
+  border-radius: 5px;
+  float: left;
+  padding: 20px;
+  margin: 20px;
+}
+.house .price{
+	margin-top: 15px;
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 700;
+    color: #009177;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.prop-attr{
+	margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.prop-attr > li{
+	display: inline-block;
+    margin-right: 25px;
+    font-size: 16px;
+    color: #262637;
+}
 .logo{
   margin: 20px;
   height: 150px;
   float: left;
+}
+.logohouse{
+	margin: 30px;
+	float: left;
 }
 
 html {

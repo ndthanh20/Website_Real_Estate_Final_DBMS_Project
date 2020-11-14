@@ -12,6 +12,12 @@ export const getCompanyCodeFromUrl = url =>{
 export const getJobCodeFromUrl = url =>{
     return url.slice(28, url.length);
 }
+export const getHouseCodeFromUrl = url =>{
+    return url.slice(28, url.length);
+}
+export const getApartmentCodeFromUrl = url =>{
+    return url.slice(28, url.length);
+}
 export const convertDocument = doc =>{
     const arr = doc.split('\n');
     const res = arr.map(p => `<p>${p}</p>`).join('');

@@ -3,6 +3,9 @@ import * as Utility from './utility/Utility'
 import * as JobList from './view/JobList/JobList'
 import * as Home from './view/Home/home'
 import * as CompanyList from './view/Companies/companyList'
+import * as HouseList from './view/HouseList/HouseList'
+import * as ApartmentList from './view/ApartmentList/ApartmentList'
+import * as HouseDetails from './view/HouseDetails/houseDetails'
 import * as JobDetails from './view/JobDetails/jobDetails'
 import * as CompanyDetails from './view/CompanyDetails/companyDetails'
 import * as Login from './view/Login/Login'
@@ -19,8 +22,17 @@ import axios from 'axios'
 const jobs = require('../../data/jobs-data.json');
 
 const companies = require('../../data/company-data.json');
+
+const house = require('../../data/house-data.json');
+
+const apartment = require('../../data/apartment-data.json');
 const jobNames = jobs.map(job => Utility.getJobCodeFromUrl(job.url));
+
 const companyNames = companies.map(com => `companies/${Utility.getCompanyCodeFromUrl(com.url)}`);
+
+const houseNames = house.map(house => Utility.getHouseCodeFromUrl(house.url));
+
+const apartmentNames = apartment.map(apartment => Utility.getApartmentCodeFromUrl(apartment.url));
 
 const state = {};
 
@@ -44,6 +56,7 @@ const fetchData = async () => {
         .then(response =>{
                 console.log(response.data[0]);
                 state.userProfile = response.data[0];
+                elements.header.insertAdjacentHTML('beforeend',`<p id="say_hello">Hi ${state.userProfile.fullName ? state.userProfile.fullName : state.userProfile.userName} !</p>`);
         }).catch(err =>{
         console.log(err);})
     }else{
@@ -77,19 +90,37 @@ document.querySelector('.search_field').addEventListener('change',e=>{
     if(jobNames.find(el => el === path)){
         renderEachJobPage(path);
         return;
-    }
+	}
+	
     if(companyNames.find(el => el === path)){
         console.log('find!')
         renderEachCompanyPage(path);
         return;
-    }
+	}
+	if(houseNames.find(el => el === path)){
+        console.log('find!')
+        renderEachHousePage(path);
+        return;
+	}
+	if(apartmentNames.find(el => el === path)){
+        console.log('find!')
+        renderEachApartmentPage(path);
+        return;
+	}
+
     switch(path){
         case '':
             renderHomePage()
             return;
         case 'jobs':
             renderJobsPage()
-            return
+			return
+		case 'house':
+			renderHousePage()
+			return
+		case 'apartment':
+			renderApartmentPage()
+			return
         case 'companies':
             renderCompaniesPage()
             return
@@ -112,7 +143,7 @@ document.querySelector('.search_field').addEventListener('change',e=>{
             renderAdmin()
             return;
         case 'find-candidates':
-            renderCandidates(state.userProfile.skills)
+            renderCandidates()
             return;
         case 'defaut':
             renderErorr();
@@ -131,9 +162,29 @@ const renderRegister = () =>{
 
 const renderEachJobPage = (jobCode) => {
     Utility.clearPage();
-    axios.get(`http://localhost:3000/jobs/${jobCode}`)
+	axios.get(`http://localhost:3000/jobs/${jobCode}`)
     .then(response=>{
         JobDetails.renderJobPage(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+}
+const renderEachHousePage = (houseCode) => {
+    Utility.clearPage();
+    axios.get(`http://localhost:3000/house/${houseCode}`)
+    .then(response=>{
+        houseDetails.renderHousePage(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+}
+const renderEachApartmentPage = (apartmentCode) => {
+    Utility.clearPage();
+    axios.get(`http://localhost:3000/apartment/${apartmentCode}`)
+    .then(response=>{
+        apartmentDetails.renderApartmentPage(response.data);
     }
     ).catch(err=>{
         console.log(err);
@@ -144,6 +195,16 @@ const renderSeachingJobsPage = search =>{
     axios.get(`http://localhost:3000/jobs/search/${search}`)
     .then(response=>{
         JobList.renderSearchJobList(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+}
+const renderSeachingHousePage = search =>{
+    Utility.clearPage();
+    axios.get(`http://localhost:3000/house/search/${search}`)
+    .then(response=>{
+        HouseList.renderSearchHouseList(response.data);
     }
     ).catch(err=>{
         console.log(err);
@@ -166,7 +227,6 @@ const renderCompaniesPage = async () =>{
     ).catch(err=>{
         console.log(err);
     });   
-    
 }
 const renderHomePage = () =>{
     Utility.clearPage();
@@ -183,8 +243,31 @@ const renderJobsPage = async () =>{
         console.log(err);
     });   
 }
+const renderHousePage = async () =>{
+    Utility.clearPage();
+    await axios.get('http://localhost:3000/house')
+    .then(response=>{
+		console.log(1)
+        if(response.data)
+            HouseList.renderHouseList(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+}
+const renderApartmentPage = async () =>{
+    Utility.clearPage();
+    await axios.get('http://localhost:3000/apartment')
+    .then(response=>{
+		console.log(1)
+        if(response.data)
+            ApartmentList.renderApartmentList(response.data);
+    }
+    ).catch(err=>{
+        console.log(err);
+    });   
+}
 const renderProfile = () =>{
-    console.log(state.user)
     Utility.clearPage()
     axios.get('http://localhost:3000/state')
     .then(response => {
@@ -204,9 +287,9 @@ const renderAdmin = () => {
     Utility.clearPage()
     Admin.renderAdminPage()
 }
-const renderCandidates = (skills) =>{
+const renderCandidates = () =>{
     Utility.clearPage();
-    Candidates.renderCandidates(skills);
+    Candidates.renderCandidates();
 }
 
 const renderBlog = () => {
