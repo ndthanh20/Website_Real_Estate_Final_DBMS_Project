@@ -280,14 +280,15 @@ optgroup { font-size:15px; }
   font-size: 20px;
 }
 .logout_btn {
+  float: right;
   margin: 20px;
-  padding: 20px;
-  display: block;
-  font-size: 30px;
+  padding: 10px;
+  display: absolute;
+  font-size: 20px;
   color: rgb(31, 149, 185);
-  border: rgb(31, 149, 185) 2px solid;
+  border: rgb(236, 239, 240) 2px solid;
   border-radius: 10px;
-  width: 150px;
+  width: 80px;
   text-align: center;
 }
 .logout_btn:hover{
@@ -354,6 +355,118 @@ optgroup { font-size:15px; }
   font-size: 40px;
   font: bold;
 }
+.title-product{
+	font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: -.0016em;
+    color: #2c2f36;
+    margin: 15px 0;
+}
+.location{
+	font-family: Roboto;
+	color: #5a646e;
+    font-size: 20px;
+}
+.divide{
+	height: 1px;
+    line-height: 1px;
+    background: #ebedf0;
+    width: 100%;
+    margin: 16px 0;
+}
+.short-detail ul{
+	width: 100%;
+    display: block
+}
+.short-detail ul li{
+	float: center;
+	
+	list-style: none;
+	margin: 0;
+	margin-right: 64px;
+    padding: 0;
+}
+.short-detail ul li .sp1{
+	font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 22px;
+    color: #28a575;
+    width: auto;
+    display: block;
+    margin-bottom: 4px;
+}
+.short-detail ul li .sp2{
+	font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #2c2f36;
+    width: auto;
+    display: block;
+    margin-top: 4px;
+}
+.detail{
+	position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+.title-detail{
+	
+	font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #2c2f36;
+	margin-bottom: 25px;
+	text-align: left;
+	display: inline-block;
+    width: 100%;
+}
+.des-product{
+	font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+	font-size: 20px;
+    line-height: 24px;
+	color: #2c2f36;
+	text-align: left;
+}
+.box-round{
+	border: 5px solid #d2d7df;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 12px;
+    width: 100%
+}
+.row-1{
+	display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.r1{
+	width: 160px;
+    float: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2c2f36;
+    margin-right: 8px;
+}
+.r2{
+	font-size: 14px;
+	line-height: 20px;
+	float: left;
+    width: calc(100% - 170px);
+    color: #2c2f36;
+}
+
 a:link{
   text-decoration: none;
 }
@@ -567,6 +680,7 @@ div.wrapper {
 nav ul {
   margin: 0;
   padding: 0;
+  width: 80%;
   list-style: none;
 }
 
@@ -758,22 +872,20 @@ textarea{
 }
 
 #header nav {
-  display: block;
+  display: relative;
   width: 100%;
   margin: 0;
-  padding: 20px 0;
+  padding: 20px 20px;
   clear: both;
 }
 #header nav ul {
+	display: absolute;
   padding: 0 20px;
 }
 #header nav li {
   display: inline;
   margin-right: 25px;
   text-transform: uppercase;
-}
-#header nav li.last {
-  margin-right: 0;
 }
 #header nav li a {
   font-size: 20px;

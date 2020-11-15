@@ -13,7 +13,7 @@ export const getJobCodeFromUrl = url =>{
     return url.slice(28, url.length);
 }
 export const getHouseCodeFromUrl = url =>{
-    return url.slice(28, url.length);
+    return url.slice(26, url.length);
 }
 export const getApartmentCodeFromUrl = url =>{
     return url.slice(28, url.length);

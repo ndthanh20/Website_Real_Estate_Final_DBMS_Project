@@ -26,7 +26,7 @@ router.get('/:userId', async (req,res) =>{
 
 router.get('/users/:userName', async (req,res) =>{
     const name = req.params.userName;
-    console.log(name);
+    //console.log(name);
     User.find({userName: name}).then(response =>{
             res.json(response);
           });

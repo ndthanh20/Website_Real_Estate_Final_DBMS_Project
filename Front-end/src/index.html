@@ -24,7 +24,11 @@
         {
           path: '/jobs',
           name: 'Jobs'
-        },
+		},
+		{
+			path: '/house',
+			name: 'House'
+		},
         {
           path: '/aboutus',
           name: 'About'
@@ -53,13 +57,14 @@
             <button class="search_btn"> Search </button>
           </a>
       </div>
-      <nav>
+      <nav id="ul_header">
         <ul>
           <li><a class="jobs" href="http://localhost:8080/jobs">Nhà đất</a></li>
           <li><a class="companies" href="http://localhost:8080/house">Dự án</a></li>
-          <li><a class="blog" href="http://localhost:8080/blogs">Blog</a></li>
-          <li class="switchState"><a class="signin" href="http://localhost:8080/signin">Sign in</a></li>
-          <li class="last aboutus"> <a href="http://localhost:8080/aboutus">About us</a></li>
+		  <li><a class="blog" href="http://localhost:8080/companies">Companies</a></li>
+		  <li class="last aboutus"> <a href="http://localhost:8080/aboutus">About us</a></li>
+          <li class="switchState" style="margin-right: 0px;"><a class="signin" href="http://localhost:8080/signin">Sign in</a></li>
+          
         </ul>
       </nav>
     </header>
@@ -104,39 +109,6 @@
       </div>
       
 
-      <div id="homepage" class="last clear">
-        <section class="one_quarter">
-          <h2 class="title">From The Blog</h2>
-          <article>
-            <header>
-              <time datetime="2000-04-06">Friday, 6<sup>th</sup> April 2000</time>
-            </header>
-            <p>Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet.</p>
-            <footer class="more"><a href="http://localhost:8080/#blogs">Read More &raquo;</a></footer>
-          </article>
-        </section>
-        <section class="one_quarter">
-          <h2 class="title">Quick Links</h2>
-          <nav>
-            <ul>
-              <li><a href="http://localhost:8080/jobs">Jobs</a></li>
-              <li><a href="http://localhost:8080/house">House</a></li>
-              <li><a href="http://localhost:8080/blogs">Blog</a></li>
-              <li><a href="http://localhost:8080/aboutus">About us</a></li>
-            </ul>
-          </nav>
-        </section>
-        <section class="two_quarter lastbox">
-          <h2 class="title">About US</h2>
-          <img class="imgl" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/teamwork-people-with-puzzle-pieces_24877-54950.jpg" width="130" height="130" alt="">
-          <p>Giới thiệu chung về nhóm 11:</p>
-            <ul>
-                <li>Nhóm gồm 7 thành viên</li>
-                <li>Tất cả đều đang học tập tại trường ĐH Công Nghệ - ĐH Quốc Gia Hà Nội.</li>
-            </ul>
-          <footer class="more"><a href="#">Read More &raquo;</a></footer>
-        </section>
-      </div>
       <!-- / content body -->
 	</div>
 	<footer class="footer">

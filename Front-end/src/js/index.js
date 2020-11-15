@@ -1,4 +1,4 @@
-import {elements} from './utility/elements'
+import { elements } from './utility/elements'
 import * as Utility from './utility/Utility'
 import * as JobList from './view/JobList/JobList'
 import * as Home from './view/Home/home'
@@ -23,7 +23,7 @@ const jobs = require('../../data/jobs-data.json');
 
 const companies = require('../../data/company-data.json');
 
-const house = require('../../data/house-data.json');
+const house = require('../../data/apartment-data.json');
 
 const apartment = require('../../data/apartment-data.json');
 const jobNames = jobs.map(job => Utility.getJobCodeFromUrl(job.url));
@@ -37,83 +37,107 @@ const apartmentNames = apartment.map(apartment => Utility.getApartmentCodeFromUr
 const state = {};
 
 const fetchData = async () => {
-    await axios.get('http://localhost:3000/state')
-    .then(async response =>{
-    console.log(response.data[0]);
-    if(response.data[0]){
-        state.user = response.data[0];
-        console.log('dang dang nhap');
-        document.querySelector('.switchState').innerHTML ='';
-        document.querySelector('.switchState').insertAdjacentHTML('beforeend',`
-            <a class="profile" href="/profile">Profile</a>`);
-        if(response.data[0].userName === 'admin'){
-            document.querySelector('.switchState').innerHTML ='';
-            document.querySelector('.switchState').insertAdjacentHTML('beforeend',
-                `<a class="profile" href="/admin">Admin</a>`);
-        }
-            
-        await axios.get(`http://localhost:3000/auth/users/${state.user.userName}`)
-        .then(response =>{
-                console.log(response.data[0]);
-                state.userProfile = response.data[0];
-                elements.header.insertAdjacentHTML('beforeend',`<p id="say_hello">Hi ${state.userProfile.fullName ? state.userProfile.fullName : state.userProfile.userName} !</p>`);
-        }).catch(err =>{
-        console.log(err);})
-    }else{
-        console.log('khong ai dang nhap');
-        document.querySelector('.switchState').innerHTML ='';
-        document.querySelector('.switchState').insertAdjacentHTML('beforeend',`
+	await axios.get('http://localhost:3000/state')
+		.then(async response => {
+			console.log(response.data[0]);
+			if (response.data[0]) {
+				state.user = response.data[0];
+				console.log('dang dang nhap');
+				document.querySelector('.switchState').innerHTML = '';
+				document.querySelector('.switchState').insertAdjacentHTML('beforeend', `
+			<a class="profile" href="/profile">Profile</a>`);
+
+				var new_a = document.createElement("a");
+				var node = document.createTextNode("Log Out");
+				new_a.className = "logout_btn";
+				new_a.href = "http://localhost:8080/";
+				new_a.appendChild(node);	
+				var ul_header = document.getElementById("ul_header");
+				ul_header.appendChild(new_a);
+				
+				if (response.data[0].userName === 'admin') {
+					document.querySelector('.switchState').innerHTML = '';
+					document.querySelector('.switchState').insertAdjacentHTML('beforeend',
+						`<a class="profile" href="/admin">Đăng bài</a>`);
+				}
+
+				await axios.get(`http://localhost:3000/auth/users/${state.user.userName}`)
+					.then(response => {
+						console.log(response.data[0]);
+						state.userProfile = response.data[0];
+						/*var new_li = document.createElement("li");
+						var new_a = document.createElement("a");
+						var node = document.createTextNode("Đăng Bài");
+						new_a.className = "dangbai";
+						new_a.href = "http://localhost:8080/dangbai";
+						new_a.appendChild(node);
+						new_li.appendChild(new_a);
+						
+						var ul_header = document.getElementById("ul_header");
+							  ul_header.appendChild(new_li);*/
+					}).catch(err => {
+						console.log(err);
+					})
+			} else {
+				console.log('khong ai dang nhap');
+				document.querySelector('.switchState').innerHTML = '';
+				document.querySelector('.switchState').insertAdjacentHTML('beforeend', `
         <a class="signin" href="/signin">Sign in</a>
         `);
-    }}).catch(err =>{
-    console.log(err);
-});};
+			}
+		}).catch(err => {
+			console.log(err);
+		});
+};
 
 fetchData()
 
 
-document.querySelector('.search_field').addEventListener('change',e=>{
-    document.getElementById('search').setAttribute("href",`http://localhost:8080/search-${e.target.value}`);
+document.querySelector('.search_field').addEventListener('change', e => {
+	document.getElementById('search').setAttribute("href", `http://localhost:8080/search-${e.target.value}`);
 });
 
 
-['hashchange','load'].forEach(event => window.addEventListener(event, e =>{
-    const link = window.location.href
-    const path = link.slice(22,link.length)
-    console.log(path)
-    if(link.includes('search')){
-        const searchWord = path.slice(7);
-        console.log(searchWord);
-        renderSeachingJobsPage(searchWord);
-        return;
-    }
-    if(jobNames.find(el => el === path)){
-        renderEachJobPage(path);
-        return;
-	}
-	
-    if(companyNames.find(el => el === path)){
-        console.log('find!')
-        renderEachCompanyPage(path);
-        return;
-	}
-	if(houseNames.find(el => el === path)){
-        console.log('find!')
-        renderEachHousePage(path);
-        return;
-	}
-	if(apartmentNames.find(el => el === path)){
-        console.log('find!')
-        renderEachApartmentPage(path);
-        return;
+['hashchange', 'load'].forEach(event => window.addEventListener(event, e => {
+	const link = window.location.href
+	const path = link.slice(22, link.length)
+	if (link.includes('search')) {
+		const searchWord = path.slice(7);
+		console.log(searchWord);
+		renderSeachingJobsPage(searchWord);
+		return;
 	}
 
-    switch(path){
-        case '':
-            renderHomePage()
-            return;
-        case 'jobs':
-            renderJobsPage()
+	if (jobNames.find(el => el === path)) {
+		console.log('find!')
+		renderEachJobPage(path);
+		return;
+	}
+
+	if (companyNames.find(el => el === path)) {
+		console.log('find!')
+		renderEachCompanyPage(path);
+		return;
+	}
+
+	if (houseNames.find(el => el === path)) {
+		console.log('find!')
+
+		renderEachHousePage(path);
+		return;
+	}
+	if (apartmentNames.find(el => el === path)) {
+		console.log('find!')
+		renderEachApartmentPage(path);
+		return;
+	}
+
+	switch (path) {
+		case '':
+			renderHomePage()
+			return;
+		case 'jobs':
+			renderJobsPage()
 			return
 		case 'house':
 			renderHousePage()
@@ -121,188 +145,192 @@ document.querySelector('.search_field').addEventListener('change',e=>{
 		case 'apartment':
 			renderApartmentPage()
 			return
-        case 'companies':
-            renderCompaniesPage()
-            return
-        case 'blogs':
-            renderBlog()
-            return
-        case 'signin':
-            renderLogin()
-            return
-        case 'register':
-            renderRegister()
-            return
-        case 'aboutus':
-            renderAbouUs()
-            return;
-        case 'profile':
-            renderProfile()
-            return;
-        case 'admin':
-            renderAdmin()
-            return;
-        case 'find-candidates':
-            renderCandidates()
-            return;
-        case 'defaut':
-            renderErorr();
-    }
+		case 'companies':
+			renderCompaniesPage()
+			return
+		case 'blogs':
+			renderBlog()
+			return
+		case 'signin':
+			renderLogin()
+			return
+		case 'register':
+			renderRegister()
+			return
+		case 'aboutus':
+			renderAbouUs()
+			return;
+		case 'profile':
+			renderProfile()
+			return;
+		case 'admin':
+			renderAdmin()
+			return;
+		case 'find-candidates':
+			renderCandidates()
+			return;
+		case 'defaut':
+			renderErorr();
+	}
 }));
 
-const renderLogin = () =>{
-    Utility.clearPage();
-    Login.renderLogin();
+const renderLogin = () => {
+	Utility.clearPage();
+	Login.renderLogin();
 }
 
-const renderRegister = () =>{
-    Utility.clearPage();
-    Register.renderRegister();
+const renderRegister = () => {
+	Utility.clearPage();
+	Register.renderRegister();
 }
 
 const renderEachJobPage = (jobCode) => {
-    Utility.clearPage();
+	Utility.clearPage();
+	console.log(jobCode)
 	axios.get(`http://localhost:3000/jobs/${jobCode}`)
-    .then(response=>{
-        JobDetails.renderJobPage(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+		.then(response => {
+			console.log(2)
+			JobDetails.renderJobPage(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
 const renderEachHousePage = (houseCode) => {
-    Utility.clearPage();
-    axios.get(`http://localhost:3000/house/${houseCode}`)
-    .then(response=>{
-        houseDetails.renderHousePage(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+	Utility.clearPage();
+	console.log(houseCode)
+	axios.get(`http://localhost:3000/house/${houseCode}`)
+		.then(response => {
+			console.log(2)
+			HouseDetails.renderHousePage(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
 const renderEachApartmentPage = (apartmentCode) => {
-    Utility.clearPage();
-    axios.get(`http://localhost:3000/apartment/${apartmentCode}`)
-    .then(response=>{
-        apartmentDetails.renderApartmentPage(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+	Utility.clearPage();
+	axios.get(`http://localhost:3000/apartment/${apartmentCode}`)
+		.then(response => {
+			apartmentDetails.renderApartmentPage(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
-const renderSeachingJobsPage = search =>{
-    Utility.clearPage();
-    axios.get(`http://localhost:3000/jobs/search/${search}`)
-    .then(response=>{
-        JobList.renderSearchJobList(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+const renderSeachingJobsPage = search => {
+	Utility.clearPage();
+	axios.get(`http://localhost:3000/jobs/search/${search}`)
+		.then(response => {
+			JobList.renderSearchJobList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
-const renderSeachingHousePage = search =>{
-    Utility.clearPage();
-    axios.get(`http://localhost:3000/house/search/${search}`)
-    .then(response=>{
-        HouseList.renderSearchHouseList(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+const renderSeachingHousePage = search => {
+	Utility.clearPage();
+	axios.get(`http://localhost:3000/house/search/${search}`)
+		.then(response => {
+			HouseList.renderSearchHouseList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
 
 const renderEachCompanyPage = (companyCode) => {
-    const index = companyNames.findIndex(el => el === companyCode);
-    Utility.clearPage();
-    CompanyDetails.renderCompanyPage(companies[index]);
+	const index = companyNames.findIndex(el => el === companyCode);
+	Utility.clearPage();
+	CompanyDetails.renderCompanyPage(companies[index]);
 }
 
-const renderCompaniesPage = async () =>{
-    Utility.clearPage();
-    await axios.get('http://localhost:3000/companies')
-    .then(response=>{
-        if(response.data)
-            CompanyList.renderCompanyList(companies);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+const renderCompaniesPage = async () => {
+	Utility.clearPage();
+	await axios.get('http://localhost:3000/companies')
+		.then(response => {
+			if (response.data)
+				CompanyList.renderCompanyList(companies);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
-const renderHomePage = () =>{
-    Utility.clearPage();
-    Home.renderHomePage();
+const renderHomePage = () => {
+	Utility.clearPage();
+	Home.renderHomePage();
 };
-const renderJobsPage = async () =>{
-    Utility.clearPage();
-    await axios.get('http://localhost:3000/jobs')
-    .then(response=>{
-        if(response.data)
-            JobList.renderJobList(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+const renderJobsPage = async () => {
+	Utility.clearPage();
+	await axios.get('http://localhost:3000/jobs')
+		.then(response => {
+			if (response.data)
+				JobList.renderJobList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
-const renderHousePage = async () =>{
-    Utility.clearPage();
-    await axios.get('http://localhost:3000/house')
-    .then(response=>{
-		console.log(1)
-        if(response.data)
-            HouseList.renderHouseList(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+const renderHousePage = async () => {
+	Utility.clearPage();
+	await axios.get('http://localhost:3000/house')
+		.then(response => {
+			console.log(1)
+			if (response.data)
+				HouseList.renderHouseList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
-const renderApartmentPage = async () =>{
-    Utility.clearPage();
-    await axios.get('http://localhost:3000/apartment')
-    .then(response=>{
-		console.log(1)
-        if(response.data)
-            ApartmentList.renderApartmentList(response.data);
-    }
-    ).catch(err=>{
-        console.log(err);
-    });   
+const renderApartmentPage = async () => {
+	Utility.clearPage();
+	await axios.get('http://localhost:3000/apartment')
+		.then(response => {
+			console.log(1)
+			if (response.data)
+				ApartmentList.renderApartmentList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
 }
-const renderProfile = () =>{
-    Utility.clearPage()
-    axios.get('http://localhost:3000/state')
-    .then(response => {
-        const userName = response.data[0].userName
-        axios.get(`http://localhost:3000/auth/users/${userName}`)
-        .then(response => {
-            const userInfo = response.data[0]
-            console.log(userInfo)
-            if(userInfo.type === 'candidate')
-                Profile.renderCandidateProfile(userInfo);
-            else
-                Profile.renderEmployerProfile(userInfo);
-        })
-    })
+const renderProfile = () => {
+	Utility.clearPage()
+	axios.get('http://localhost:3000/state')
+		.then(response => {
+			const userName = response.data[0].userName
+			axios.get(`http://localhost:3000/auth/users/${userName}`)
+				.then(response => {
+					const userInfo = response.data[0]
+					console.log(userInfo)
+					if (userInfo.type === 'candidate')
+						Profile.renderCandidateProfile(userInfo);
+					else
+						Profile.renderEmployerProfile(userInfo);
+				})
+		})
 }
 const renderAdmin = () => {
-    Utility.clearPage()
-    Admin.renderAdminPage()
+	Utility.clearPage()
+	Admin.renderAdminPage()
 }
-const renderCandidates = () =>{
-    Utility.clearPage();
-    Candidates.renderCandidates();
+const renderCandidates = () => {
+	Utility.clearPage();
+	Candidates.renderCandidates();
 }
 
 const renderBlog = () => {
-    Utility.clearPage(); 
-    Blog.renderBLog();
+	Utility.clearPage();
+	Blog.renderBLog();
 }
 
 const renderAbouUs = () => {
-    Utility.clearPage(); 
-    AboutUs.renderAboutUs();
+	Utility.clearPage();
+	AboutUs.renderAboutUs();
 }
 
 
-function change(){
-    console.log('hello')
+function change() {
+	console.log('hello')
 }

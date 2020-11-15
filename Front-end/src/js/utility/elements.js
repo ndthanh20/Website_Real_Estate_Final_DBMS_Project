@@ -11,5 +11,5 @@ export const elements = {
     logInButton: document.getElementById('sf_submit'),
     userName: document.querySelector('.user_name'),
     password: document.querySelector('.password'),
-    header: document.querySelector('.clear')
+	header: document.querySelector('.clear')
 };

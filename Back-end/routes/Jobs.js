@@ -5,7 +5,7 @@ const Job = require('../model/Job')
 
 router.get('/',(req,res) =>{
     Job.find({}).then(response=>{
-            console.log('hello');
+            //console.log('hello');
             res.json(response);
           });
     });
@@ -27,7 +27,8 @@ router.delete('/:title', async (req, res) => {
     });
 
 router.get('/:name',(req,res) =>{
-    const name = req.params.name;
+	const name = req.params.name;
+	console.log(name)
     Job.find({}).then(response =>{
             const job = response.find(el => el.url.includes(name))
             res.json(job);

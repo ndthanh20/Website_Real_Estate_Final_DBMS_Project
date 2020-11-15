@@ -1,4 +1,5 @@
 const change = async () =>{
+	console.log('hello')
     const value = document.getElementById('slct').value
     switch(value){
         case 'jobs':
@@ -6,7 +7,10 @@ const change = async () =>{
             break
         case 'companies':
             renderData('companies')
-            break
+			break
+		case 'house':
+			renderData('house')	
+			break
         case 'candidates':
             renderData('auth')
             break
@@ -14,7 +18,7 @@ const change = async () =>{
             clearPage()
     }
 }
-
+console.log('hello')
 const clearPage = () =>{
     document.querySelector('.admin_page').innerHTML = ''
 }
@@ -64,7 +68,9 @@ const renderData = async (type) => {
                         if(type === 'jobs')
                             url = getJobCodeFromUrl(el.url)
                         if(type === 'companies')
-                            url = 'companies/' + getCompanyCodeFromUrl(el.url)
+							url = 'companies/' + getCompanyCodeFromUrl(el.url)
+						if(type === 'house')
+							url = getHouseCodeFromUrl(el.url)
                         return `<tr>
                             <th><a href="/${url}">${title}</a></th>
                             <th class="change_unit"><img class="change_button" onClick="fix('${title}','${type}')" src="../images/fix.svg" height=20/></th>
@@ -193,4 +199,7 @@ const getCompanyCodeFromUrl = url =>{
 }
 const getJobCodeFromUrl = url =>{
     return url.slice(28, url.length);
+}
+const getHouseCodeFromUrl = url =>{
+    return url.slice(26, url.length);
 }
