@@ -5,7 +5,7 @@ import * as Utility from '../../utility/Utility';
 
 const EachApartment = apartment => {
 	const markup = `
-	<div class="apartment" id="apartment_69312">
+	<div class="apartment" id="apartment">
 			<a class="logoapartment" href="/${Utility.getApartmentCodeFromUrl(apartment.url)}">
 				<img alt="Logo" src=${apartment.Image} style="width:250px; height:250px;" >
 			</a>

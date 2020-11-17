@@ -1,3 +1,5 @@
+//const { getApartmentCodeFromUrl } = require("../../src/js/utility/Utility")
+
 const change = async () =>{
 	console.log('hello')
     const value = document.getElementById('slct').value
@@ -10,6 +12,12 @@ const change = async () =>{
 			break
 		case 'house':
 			renderData('house')	
+			break
+		case 'apartment':
+			renderData('apartment')	
+			break
+		case 'land':
+			renderData('land')	
 			break
         case 'candidates':
             renderData('auth')
@@ -71,6 +79,10 @@ const renderData = async (type) => {
 							url = 'companies/' + getCompanyCodeFromUrl(el.url)
 						if(type === 'house')
 							url = getHouseCodeFromUrl(el.url)
+						if(type === 'apartment')
+							url = getApartmentCodeFromUrl(el.url)
+						if(type === 'land')
+							url = getLandCodeFromUrl(el.url)
                         return `<tr>
                             <th><a href="/${url}">${title}</a></th>
                             <th class="change_unit"><img class="change_button" onClick="fix('${title}','${type}')" src="../images/fix.svg" height=20/></th>
@@ -201,5 +213,11 @@ const getJobCodeFromUrl = url =>{
     return url.slice(28, url.length);
 }
 const getHouseCodeFromUrl = url =>{
+    return url.slice(26, url.length);
+}
+const getApartmentCodeFromUrl = url =>{
+    return url.slice(26, url.length);
+}
+const getLandCodeFromUrl = url =>{
     return url.slice(26, url.length);
 }

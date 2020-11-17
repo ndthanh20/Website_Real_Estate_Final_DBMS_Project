@@ -11,7 +11,9 @@ export const renderAdminPage = () => {
                     <optgroup>
                         <option selected disabled>------</option>
                         <option value="jobs">Jobs</option>
-                        <option value="companies">Company</option>
+						<option value="house">House</option>
+						<option value="apartment">Apartment</option>
+						<option value="land">Land</option>
                         <option value="candidates">Candidate</option>
                     </optgroup>
                 </select>

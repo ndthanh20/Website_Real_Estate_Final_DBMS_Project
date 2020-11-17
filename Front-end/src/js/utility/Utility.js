@@ -18,6 +18,9 @@ export const getHouseCodeFromUrl = url =>{
 export const getApartmentCodeFromUrl = url =>{
     return url.slice(28, url.length);
 }
+export const getLandCodeFromUrl = url =>{
+    return url.slice(26, url.length);
+}
 export const convertDocument = doc =>{
     const arr = doc.split('\n');
     const res = arr.map(p => `<p>${p}</p>`).join('');

@@ -13,7 +13,7 @@ router.get('/',(req,res) =>{
 router.post('/',(req,res) =>{
     const data = req.body
     console.log(req.body)
-    House.insertOne(data).then(response=>{
+    House.insertOne(data).then(response=>{					
             res.send('ok')
         });
     });

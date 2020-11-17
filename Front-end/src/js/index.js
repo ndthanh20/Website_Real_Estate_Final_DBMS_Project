@@ -5,7 +5,9 @@ import * as Home from './view/Home/home'
 import * as CompanyList from './view/Companies/companyList'
 import * as HouseList from './view/HouseList/HouseList'
 import * as ApartmentList from './view/ApartmentList/ApartmentList'
+import * as LandList from './view/LandList/LandList'
 import * as HouseDetails from './view/HouseDetails/houseDetails'
+
 import * as JobDetails from './view/JobDetails/jobDetails'
 import * as CompanyDetails from './view/CompanyDetails/companyDetails'
 import * as Login from './view/Login/Login'
@@ -23,9 +25,11 @@ const jobs = require('../../data/jobs-data.json');
 
 const companies = require('../../data/company-data.json');
 
-const house = require('../../data/apartment-data.json');
+const house = require('../../data/house-data.json');
 
 const apartment = require('../../data/apartment-data.json');
+
+const land = require('../../data/land-data.json')
 const jobNames = jobs.map(job => Utility.getJobCodeFromUrl(job.url));
 
 const companyNames = companies.map(com => `companies/${Utility.getCompanyCodeFromUrl(com.url)}`);
@@ -34,6 +38,8 @@ const houseNames = house.map(house => Utility.getHouseCodeFromUrl(house.url));
 
 const apartmentNames = apartment.map(apartment => Utility.getApartmentCodeFromUrl(apartment.url));
 
+
+const landNames = land.map(land => Utility.getLandCodeFromUrl(land.url));
 const state = {};
 
 const fetchData = async () => {
@@ -131,6 +137,12 @@ document.querySelector('.search_field').addEventListener('change', e => {
 		renderEachApartmentPage(path);
 		return;
 	}
+	if (landNames.find(el => el === path)) {
+		console.log('find!')
+
+		renderEachLandPage(path);
+		return;
+	}
 
 	switch (path) {
 		case '':
@@ -144,6 +156,9 @@ document.querySelector('.search_field').addEventListener('change', e => {
 			return
 		case 'apartment':
 			renderApartmentPage()
+			return
+		case 'land':
+			renderLandPage()
 			return
 		case 'companies':
 			renderCompaniesPage()
@@ -238,6 +253,16 @@ const renderSeachingHousePage = search => {
 			console.log(err);
 		});
 }
+const renderSeachingApartmentPage = search => {
+	Utility.clearPage();
+	axios.get(`http://localhost:3000/house/search/${search}`)
+		.then(response => {
+			ApartmentList.renderSearchApartmentList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
+}
 
 const renderEachCompanyPage = (companyCode) => {
 	const index = companyNames.findIndex(el => el === companyCode);
@@ -283,6 +308,7 @@ const renderHousePage = async () => {
 			console.log(err);
 		});
 }
+
 const renderApartmentPage = async () => {
 	Utility.clearPage();
 	await axios.get('http://localhost:3000/apartment')
@@ -290,6 +316,18 @@ const renderApartmentPage = async () => {
 			console.log(1)
 			if (response.data)
 				ApartmentList.renderApartmentList(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
+}
+const renderLandPage = async () => {
+	Utility.clearPage();
+	await axios.get('http://localhost:3000/land')
+		.then(response => {
+			console.log(1)
+			if (response.data)
+				LandList.renderLandList(response.data);
 		}
 		).catch(err => {
 			console.log(err);

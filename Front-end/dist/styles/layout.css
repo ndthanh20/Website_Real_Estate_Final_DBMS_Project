@@ -507,6 +507,44 @@ a:link{
     overflow: hidden;
     white-space: nowrap;
 }
+.apartment{
+	width: 100% ;
+	height: auto;
+	border: 2px #ebedf0 solid;
+	border-radius: 5px;
+	float: left;
+	padding: 20px;
+	margin: 20px;
+  }
+.apartment .price{
+	  margin-top: 15px;
+	  font-size: 28px;
+	  line-height: 30px;
+	  font-weight: 700;
+	  color: #009177;
+	  text-overflow: ellipsis;
+	  overflow: hidden;
+	  white-space: nowrap;
+  }
+  .land{
+	width: 100% ;
+	height: auto;
+	border: 2px #ebedf0 solid;
+	border-radius: 5px;
+	float: left;
+	padding: 20px;
+	margin: 20px;
+  }
+.land .price{
+	  margin-top: 15px;
+	  font-size: 28px;
+	  line-height: 30px;
+	  font-weight: 700;
+	  color: #009177;
+	  text-overflow: ellipsis;
+	  overflow: hidden;
+	  white-space: nowrap;
+  }
 .prop-attr{
 	margin: 10px 0 0;
     padding: 0;
@@ -524,6 +562,14 @@ a:link{
   float: left;
 }
 .logohouse{
+	margin: 30px;
+	float: left;
+}
+.logoapartment{
+	margin: 30px;
+	float: left;
+}
+.logoland{
 	margin: 30px;
 	float: left;
 }

@@ -5,6 +5,7 @@ const cors = require('cors');
 const authRoute = require('./routes/userAuth');
 const houseRoute = require('./routes/House')
 const apartmentRoute = require('./routes/Apartment')
+const landRoute = require('./routes/Land')
 const companiesRoute = require('./routes/Companies');
 const jobsRoute = require('./routes/Jobs');
 const stateRoute = require('./routes/State');
@@ -24,6 +25,7 @@ app.use('/companies',companiesRoute);
 app.use('/jobs',jobsRoute);
 app.use('/house',houseRoute);
 app.use('/apartment',apartmentRoute);
+app.use('/land',landRoute)
 
 //connect to the db
 mongoose.connect('mongodb://localhost:27017/first-project-db',{ useNewUrlParser: true, useUnifiedTopology: true },() =>{

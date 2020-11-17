@@ -5,7 +5,7 @@ import * as Utility from '../../utility/Utility';
 
 const EachHouse = house => {
 	const markup = `
-	<div class="house" id="house_69312">
+	<div class="house" id="house">
 			<a class="logohouse" href="/${Utility.getHouseCodeFromUrl(house.url)}">
 				<img alt="Logo" src=${house.Image} style="width:250px; height:250px;" >
 			</a>

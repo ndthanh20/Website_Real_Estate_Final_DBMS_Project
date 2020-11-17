@@ -40,25 +40,45 @@ export const renderHousePage = house =>{
 					<span class="r1">Địa chỉ:</span>
 					<span class="r2"> ${house.Location} </span>
 				</div>
+				<div class="divide"> </div>
 				<div class="row-1">
 					<span class="r1">Số phòng ngủ:</span>
 					<span class="r2"> ${house.NumberBed} </span>
 				</div>
+				<div class="divide"> </div>
 				<div class="row-1">
 					<span class="r1">Số toilet:</span>
 					<span class="r2"> ${house.NumberToilet} </span>
 				</div>
+				<div class="divide"> </div>
 				<div class="row-1">
 					<span class="r1">Chủ đầu tư:</span>
 					<span class="r2"> ${house.Investor} </span>
 				</div>
+				<div class="divide"> </div>
 				<div class="row-1">
 					<span class="r1">Ngày đăng:</span>
 					<span class="r2"> ${house.timePost} </span>
 				</div>
+				<div class="divide"> </div>
 				<div class="row-1">
 					<span class="r1">Liên hệ:</span>
 					<span class="r2"> ${house.Phone} </span>
+				</div>
+				<div class="divide"> </div>
+				<div class="row-1">
+					<span class="r1">Mặt tiền:</span>
+					<span class="r2"> ${house.MatTien} </span>
+				</div>
+				<div class="divide"> </div>
+				<div class="row-1">
+					<span class="r1">Đường vào:</span>
+					<span class="r2"> ${house.DuongVao} </span>
+				</div>
+				<div class="divide"> </div>
+				<div class="row-1">
+					<span class="r1">Số tầng:</span>
+					<span class="r2"> ${house.SoTang} </span>
 				</div>
 			</div>
 		</div>
