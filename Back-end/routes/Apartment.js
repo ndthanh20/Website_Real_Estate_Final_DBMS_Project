@@ -13,9 +13,12 @@ router.get('/',(req,res) =>{
 router.post('/',(req,res) =>{
     const data = req.body
     console.log(req.body)
-    Apartment.insertOne(data).then(response=>{
-            res.send('ok')
-        });
+    apartment = new Apartment(data)
+    apartment.save(function (err) {
+		if (err) return console.error(err);
+	  }).then(response =>{
+		  res.json(apartment);
+	  });
     });
 
 router.delete('/:title', async (req, res) => {
@@ -42,10 +45,11 @@ router.get('/search/:search',async (req,res) =>{
     Apartment.find({}).then(response =>{
             const list = response.filter(cur => {
                 const resultsArray = search.map(el => {
-                    const apartmentTitle = cur.title.toLowerCase();
+					const apartmentTitle = cur.title.toLowerCase();
+					const apartmentLocation = cur.Location.toLowerCase();
                     //const companyName = cur.PropertyInfo.name.toLowerCase();;
                     //const tagList = cur.tagList.map(cur => cur.toLowerCase());
-                    return apartmentTitle.includes(el); //|| companyName.includes(el) || tagList.find(el => el.includes(el));
+                    return apartmentTitle.includes(el) || apartmentLocation.includes(el) ;//;tagList.find(el => el.includes(el));
                 });
                 return resultsArray.find(el => el === true);
             })

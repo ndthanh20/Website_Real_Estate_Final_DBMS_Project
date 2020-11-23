@@ -12,6 +12,7 @@ router.get('/',(req,res) =>{
 
 router.delete('/',(req,res) =>{
     State.deleteMany().then(response=>{
+		console.log("log out")
         res.send('ok')
     });
     });

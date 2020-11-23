@@ -9,7 +9,7 @@ const EachLand = land => {
 			<a class="logoland" href="/${Utility.getLandCodeFromUrl(land.url)}">
 				<img alt="Logo" src=${land.HinhAnh} style="width:250px; height:250px;" >
 			</a>
-			<a href="/${Utility.getLandCodeFromUrl(land.url)}" style="font-size: 25px; color:blue;">${land.TieuDe}</a>
+			<a href="/${Utility.getLandCodeFromUrl(land.url)}" style="font-size: 25px; color:blue;">${land.title}</a>
 			<h3 style="font-size: 20px; margin: 20px">Địa chỉ: ${land.ViTri}</h3>
 			<ul class="prop-attr">
 				<li class="area">Diện tích:  ${land.DienTich} </li> 

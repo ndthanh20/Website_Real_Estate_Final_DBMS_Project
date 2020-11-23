@@ -13,9 +13,12 @@ router.get('/',(req,res) =>{
 router.post('/',(req,res) =>{
     const data = req.body
     console.log(req.body)
-    Land.insertOne(data).then(response=>{
-            res.send('ok')
-        });
+    land = new Land(data)
+    land.save(function (err) {
+		if (err) return console.error(err);
+	  }).then(response =>{
+		  res.json(land);
+	  });
     });
 
 router.delete('/:title', async (req, res) => {

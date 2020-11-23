@@ -16,7 +16,7 @@ export const getHouseCodeFromUrl = url =>{
     return url.slice(26, url.length);
 }
 export const getApartmentCodeFromUrl = url =>{
-    return url.slice(28, url.length);
+    return url.slice(26, url.length);
 }
 export const getLandCodeFromUrl = url =>{
     return url.slice(26, url.length);
@@ -37,7 +37,7 @@ export const tagStyle = `
     color: white;`;
 
 export const formStyle = `
-    display: block-inline;
+    display: inline-block;
     width: 250px;
     height: 30px;
     font-size:20px;

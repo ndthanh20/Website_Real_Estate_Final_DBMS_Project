@@ -36,7 +36,6 @@ export const renderHouseList = houseList => {
         <div class="page">
             ${houseList.slice(0, 4).map(house => EachHouse(house)).join('')}
         </div>
-        <button class="see_more">See more >></button>
     `;
 	elements.container.insertAdjacentHTML('beforeend', HousePage);
 	document.querySelector('.see_more').addEventListener('click', e => {

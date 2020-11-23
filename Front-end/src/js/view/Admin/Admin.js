@@ -10,7 +10,6 @@ export const renderAdminPage = () => {
                 <select name="slct" id="slct" onChange="change()">
                     <optgroup>
                         <option selected disabled>------</option>
-                        <option value="jobs">Jobs</option>
 						<option value="house">House</option>
 						<option value="apartment">Apartment</option>
 						<option value="land">Land</option>
@@ -20,18 +19,7 @@ export const renderAdminPage = () => {
             </div>
             <div class="admin_page">
             </div>
-            <a class="logout_btn" href="http://localhost:8080/">Log out</a>
         </div>
       `; 
     elements.container.insertAdjacentHTML('beforeend', markup);
-    document.querySelector(".logout_btn").addEventListener("click", logOut);
-};
-
-const logOut = () => {
-    fetch('http://localhost:3000/state',{
-        method:"DELETE"
-    }).then()
-    .catch(err=>{
-        console.log(err)
-    })
 };

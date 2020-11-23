@@ -7,6 +7,8 @@ import * as HouseList from './view/HouseList/HouseList'
 import * as ApartmentList from './view/ApartmentList/ApartmentList'
 import * as LandList from './view/LandList/LandList'
 import * as HouseDetails from './view/HouseDetails/houseDetails'
+import * as ApartmentDetails from './view/ApartmentDetails/apartmentDetails'
+import * as LandDetails from './view/LandDetails/landDetails'
 
 import * as JobDetails from './view/JobDetails/jobDetails'
 import * as CompanyDetails from './view/CompanyDetails/companyDetails'
@@ -57,10 +59,18 @@ const fetchData = async () => {
 				var node = document.createTextNode("Log Out");
 				new_a.className = "logout_btn";
 				new_a.href = "http://localhost:8080/";
-				new_a.appendChild(node);	
+				new_a.appendChild(node);
 				var ul_header = document.getElementById("ul_header");
 				ul_header.appendChild(new_a);
-				
+				document.querySelector(".logout_btn").addEventListener("click", function () {
+					fetch('http://localhost:3000/state', {
+						method: "DELETE"
+					}).then()
+						.catch(err => {
+							console.log(err)
+						})
+				});
+
 				if (response.data[0].userName === 'admin') {
 					document.querySelector('.switchState').innerHTML = '';
 					document.querySelector('.switchState').insertAdjacentHTML('beforeend',
@@ -107,10 +117,12 @@ document.querySelector('.search_field').addEventListener('change', e => {
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, e => {
 	const link = window.location.href
 	const path = link.slice(22, link.length)
+	console.log(path)
 	if (link.includes('search')) {
 		const searchWord = path.slice(7);
 		console.log(searchWord);
-		renderSeachingJobsPage(searchWord);
+		renderSeachingHousePage(searchWord);
+		renderSeachingApartmentPage(searchWord);
 		return;
 	}
 
@@ -139,7 +151,6 @@ document.querySelector('.search_field').addEventListener('change', e => {
 	}
 	if (landNames.find(el => el === path)) {
 		console.log('find!')
-
 		renderEachLandPage(path);
 		return;
 	}
@@ -227,7 +238,17 @@ const renderEachApartmentPage = (apartmentCode) => {
 	Utility.clearPage();
 	axios.get(`http://localhost:3000/apartment/${apartmentCode}`)
 		.then(response => {
-			apartmentDetails.renderApartmentPage(response.data);
+			ApartmentDetails.renderApartmentPage(response.data);
+		}
+		).catch(err => {
+			console.log(err);
+		});
+}
+const renderEachLandPage = (landCode) => {
+	Utility.clearPage();
+	axios.get(`http://localhost:3000/land/${landCode}`)
+		.then(response => {
+			LandDetails.renderLandPage(response.data);
 		}
 		).catch(err => {
 			console.log(err);
@@ -255,7 +276,7 @@ const renderSeachingHousePage = search => {
 }
 const renderSeachingApartmentPage = search => {
 	Utility.clearPage();
-	axios.get(`http://localhost:3000/house/search/${search}`)
+	axios.get(`http://localhost:3000/apartment/search/${search}`)
 		.then(response => {
 			ApartmentList.renderSearchApartmentList(response.data);
 		}

@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -11,11 +12,14 @@ router.get('/',(req,res) =>{
     });
 
 router.post('/',(req,res) =>{
-    const data = req.body
-    console.log(req.body)
-    House.insertOne(data).then(response=>{					
-            res.send('ok')
-        });
+	const data = req.body
+	console.log(House)
+	house = new House(data)
+    house.save(function (err) {
+		if (err) return console.error(err);
+	  }).then(response =>{
+		  res.json(house);
+	  });
     });
 
 router.delete('/:title', async (req, res) => {
@@ -39,14 +43,13 @@ router.get('/:name',(req,res) =>{
 router.get('/search/:search',async (req,res) =>{
     let search = req.params.search.split(' ');
     search = search.map(el => el.toLowerCase());
-    console.log(search);
     House.find({}).then(response =>{
             const list = response.filter(cur => {
                 const resultsArray = search.map(el => {
+					console.log(el)
                     const houseTitle = cur.title.toLowerCase();
-                    const companyName = cur.PropertyInfo.name.toLowerCase();;
-                    const tagList = cur.tagList.map(cur => cur.toLowerCase());
-                    return houseTitle.includes(el) || companyName.includes(el) || tagList.find(el => el.includes(el));
+                    const houseLocation = cur.Location.toLowerCase();
+                    return houseTitle.includes(el) || houseLocation.includes(el);
                 });
                 return resultsArray.find(el => el === true);
             })

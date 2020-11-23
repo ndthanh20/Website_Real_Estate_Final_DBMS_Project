@@ -26,20 +26,17 @@ router.get('/:userId', async (req,res) =>{
 
 router.get('/users/:userName', async (req,res) =>{
     const name = req.params.userName;
-    //console.log(name);
     User.find({userName: name}).then(response =>{
-            res.json(response);
+			console.log(response)
+			res.json(response);
           });
     });
 
 router.post('/', (req,res) =>{
-    let newUser;
+	const data = req.body
+	
     if(req.body.type === 'candidate'){
-        newUser = new User({
-            userName: req.body.userName,
-            password: req.body.password,
-            type: 'candidate'
-        });
+        user = new User(data)
     }
     if(req.body.type === 'employer'){
         newUser = new User({
@@ -49,10 +46,12 @@ router.post('/', (req,res) =>{
             fullName: req.body.fullName,
             address: req.body.address
         });
-    }
-    User.insertOne(newUser, () => {
-            res.send('item has been inserted!')
-        });
+	}
+    user.save(function (err) {
+		if (err) return console.error(err);
+	  }).then(response =>{
+		  res.json(user);
+	  });
 });
 
 router.patch('/users/:userName', (req,res) =>{
